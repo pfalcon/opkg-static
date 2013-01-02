@@ -1,0 +1,16 @@
+Static self-contained opkg binary for Android
+=============================================
+
+These are build scripts to build a fully static, dependency-less
+opkg binary for Android. Opkg is a package manager for embedded
+systems, http://code.google.com/p/opkg/ ,
+http://en.wikipedia.org/wiki/Opkg
+
+The idea of this project is to provide an opkg build independent
+of the underlying Android system. Full independence of underlying
+system means it can be used on non-rooted device, or could be used
+even to manage Android installation itself ("Packaged Android").
+To these ends, opkg is built statically, against libcurl (to not
+depend on standalone wget), which in turn is built against c-ares,
+to not rely on /etc/resolv.conf being available (you can't
+create/edit that on non-rooted device).
