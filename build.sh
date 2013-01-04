@@ -14,6 +14,12 @@ function build() {
     (cd $dir; ../build/$dir/build.sh)
 }
 
+if ! which arm-none-linux-gnueabi-gcc; then
+    echo "arm-none-linux-gnueabi-gcc is required to compile software"
+    echo "make sure you have it in PATH"
+    exit 1
+fi
+
 dir=$(expand c-ares*.tar.*)
 build $dir
 
