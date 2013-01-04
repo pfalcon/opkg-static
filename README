@@ -14,3 +14,12 @@ To these ends, opkg is built statically, against libcurl (to not
 depend on standalone wget), which in turn is built against c-ares,
 to not rely on /etc/resolv.conf being available (you can't
 create/edit that on non-rooted device).
+
+Usage:
+
+./download.sh
+./build.sh
+./install.sh
+
+This will download sources, build them, and install on a connected
+Android device.
