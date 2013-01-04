@@ -10,7 +10,7 @@ make clean || true
     --enable-curl \
     --disable-ssl-curl \
     --prefix=/data/local \
-    --with-opkglibdir=/data/local \
+    --with-opkglibdir=/data/local/var/lib \
     --with-opkgetcdir=/data/local/etc
 make
 make install-strip prefix=$PWD/install transform='s/-cl/-static/'
