@@ -1,0 +1,4 @@
+root:x:0:root
+sdcard_rw:x:1015:shell
+shell:x:2000:shell
+inet:x:3003:shell
