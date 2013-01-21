@@ -11,7 +11,7 @@ function expand() {
 
 function build() {
     dir=$1
-    (cd $dir; ../build/$dir/build.sh)
+    (cd $dir; ../recipes/$dir/build.sh)
 }
 
 if ! which arm-none-linux-gnueabi-gcc; then
