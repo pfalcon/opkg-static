@@ -3,7 +3,7 @@ for patch in $(dirname $0)/*.patch; do
 done
 
 ./configure --host=arm-none-linux-gnueabi \
-    --disable-shared CFLAGS='--static' LDFLAGS='--static' \
+    --disable-shared CFLAGS="--static -DSYSCONFDIR=\\\"$SYSCONFDIR\\\"" LDFLAGS='--static' \
     --prefix=$PWD/install
 make
 make install
