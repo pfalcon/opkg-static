@@ -1,11 +1,11 @@
 #!/bin/sh
 
-# Main prefix, opkg-static will be installed into $OPKG_PREFIX/bin
-export OPKG_PREFIX=/data/local
+# Main prefix, opkg-static will be installed into $PREFIX/bin
+export PREFIX=/data/local
+# Where config files will be kept, "/opkg" will be appended automatically for opkg config files
+export SYSCONFDIR=$PREFIX/etc
 # Where package info files, etc. will be kept, "/opkg" will be appended
 # automatically
 export OPKG_LIB_DIR=$OPKG_PREFIX/var/lib
-# Where config files will be kept, "/opkg" will be appended automatically
-export OPKG_ETC_DIR=$OPKG_PREFIX/etc
 
 . ./build.sh

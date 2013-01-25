@@ -14,7 +14,7 @@ function build() {
     (cd $dir; ../recipes/$dir/build.sh)
 }
 
-if [ -z "$OPKG_PREFIX" -o -z "$OPKG_LIB_DIR" -o -z "$OPKG_ETC_DIR" ]; then
+if [ -z "$PREFIX" -o -z "$SYSCONFDIR" -o -z "$OPKG_LIB_DIR" ]; then
     echo "OPKG_PREFIX and friends are not defined."
     echo "You should not run this file directly, instead run build-* for specific target."
     exit 1

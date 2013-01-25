@@ -1,5 +1,5 @@
-if [ -z "$OPKG_PREFIX" ]; then
-    echo "OPKG_PREFIX not defined"
+if [ -z "$PREFIX" ]; then
+    echo "PREFIX not defined"
     exit 1
 fi
 
@@ -14,9 +14,9 @@ make clean || true
     --disable-gpg \
     --enable-curl \
     --disable-ssl-curl \
-    --prefix="$OPKG_PREFIX" \
+    --prefix="$PREFIX" \
     --with-opkglibdir="$OPKG_LIB_DIR" \
-    --with-opkgetcdir="$OPKG_ETC_DIR"
+    --with-opkgetcdir="$SYSCONFDIR"
 make
 make install-strip prefix=$PWD/install transform='s/-cl/-static/'
 
