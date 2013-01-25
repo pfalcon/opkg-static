@@ -19,3 +19,8 @@ make clean || true
     --with-opkgetcdir="$OPKG_ETC_DIR"
 make
 make install-strip prefix=$PWD/install transform='s/-cl/-static/'
+
+echo
+echo "****************"
+echo "opkg build finished, binaries are in $PWD/install/bin"
+echo "****************"
