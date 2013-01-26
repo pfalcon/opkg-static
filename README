@@ -1,25 +1,43 @@
-Static self-contained opkg binary for Android
-=============================================
+Static self-contained opkg binary for adhoc vendor devices
+==========================================================
+
+Opkg is a package manager for embedded systems,
+http://code.google.com/p/opkg/ , http://en.wikipedia.org/wiki/Opkg
+There are quite a few devices on the market which use Embedded Linux,
+but don't follow POSIX/Linux best practices and instead use adhoc
+vendor system structure. Oftentimes, file system layout doesn't match
+(or conflicts with) FHS (http://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard)
+and user may not have write access to the entire file system, or
+important. Examples of such systems are Android, Kindle, etc.
+Users may still want to use package management for "sideloaded"
+Linux software, and this project is intended to make this possible.
 
 These are build scripts to build a fully static, dependency-less
-opkg binary for Android. Opkg is a package manager for embedded
-systems, http://code.google.com/p/opkg/ ,
-http://en.wikipedia.org/wiki/Opkg
+opkg binary for Android. 
 
 The idea of this project is to provide an opkg build independent
-of the underlying Android system. Full independence of underlying
-system means it can be used on non-rooted device, or could be used
-even to manage Android installation itself ("Packaged Android").
+of the vendor system. Full independence of underlying system means
+it can be used without root permissions, or could be used even to
+manage vendor installation itself (for example, "Packaged Android").
 To these ends, opkg is built statically, against libcurl (to not
-depend on standalone wget), which in turn is built against c-ares,
+depend on a standalone wget), which in turn is built against c-ares,
 to not rely on /etc/resolv.conf being available (you can't
-create/edit that on non-rooted device).
+create/edit that on a non-rooted device). Filesystem paths for
+configuration files (including network resolver ones) and package
+data storage is fully configurable.
 
 Usage:
 
 ./download.sh
-./build.sh
-./install.sh
 
-This will download sources, build them, and install on a connected
-Android device.
+    To download required source packages. You need to run this once.
+
+./build-*.sh
+
+    Run build file for a particular device and configuration. Binary
+    will be available as opkg/install/bin/opkg-static .
+
+./install-android.sh
+
+    This script will install opkg-static and require files to a
+    connected Android device via ADB.
