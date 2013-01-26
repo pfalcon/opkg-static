@@ -6,6 +6,6 @@ export PREFIX=/mnt/us
 export SYSCONFDIR=$PREFIX/etc
 # Where package info files, etc. will be kept, "/opkg" will be appended
 # automatically
-export OPKG_LIB_DIR=$OPKG_PREFIX/var/lib
+export OPKG_LIB_DIR=$PREFIX/var/lib
 
 . ./build.sh
