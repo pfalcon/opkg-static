@@ -18,3 +18,8 @@ adb push options.conf $BASE/etc/opkg
 adb push arch.conf $BASE/etc/opkg
 adb push oe-android.conf $BASE/etc/opkg
 adb push oe $BASE
+
+echo "Run:"
+echo "adb shell"
+echo ". /data/local/oe"
+echo "opkg-static --help"
