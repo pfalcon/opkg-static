@@ -28,6 +28,15 @@ data storage is fully configurable.
 
 Usage:
 
+To build opkg, ARM cross-toolchain is needed. CodeSourcery
+arm-2011.09-70-arm-none-linux-gnueabi is used as the reference. If you
+want to download (~80MB) and setup it automatically, run:
+
+source ./setup-toolchain.sh
+
+Otherwise, you should have arm-none-linux-gnueabi-gcc and other toolchain
+executables in your PATH.
+
 ./download.sh
 
     To download required source packages. You need to run this once.
@@ -40,4 +49,5 @@ Usage:
 ./install-android.sh
 
     This script will install opkg-static and require files to a
-    connected Android device via ADB.
+    connected Android device via ADB. (Works only for
+    build-android-data-local.sh)
